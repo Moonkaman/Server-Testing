@@ -2,7 +2,7 @@ const express = require('express');
 
 const configMiddleware = require('../config/configMiddleware');
 
-const dogsRouter = require('./dogsRouter');
+const dogsRouter = require('./dogs/dogsRouter')
 
 const server = express();
 

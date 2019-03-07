@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const db = require('../data/helpers/dogsDbHelpers');
+const db = require('../../data/helpers/dogsDbHelpers');
 
 router.get('/', (req, res) => {
   db.get()
