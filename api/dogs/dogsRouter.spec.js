@@ -55,4 +55,17 @@ describe('dogsRouter.js', () => {
       expect(res.status).toBe(404);
     });
   });
+
+  describe('DELETE /api/dogs', () => {
+    it('Returns 404 if no dog found', async () => {
+      const res = await request(server).delete('/api/dogs/1');
+      expect(res.status).toBe(404);
+    });
+
+    it('Returns 204 dog deleted', async () => {
+      await request(server).post('/api/dogs').send({name: 'buddy'});
+      const res = await request(server).delete('/api/dogs/1');
+      expect(res.status).toBe(204);
+    });
+  });
 });
