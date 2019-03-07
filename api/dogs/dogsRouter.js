@@ -26,4 +26,14 @@ router.post('/', (req, res) => {
   }
 })
 
+router.put('/:id', (req, res) => {
+  if(req.body.name) {
+    db.update(req.params.id, req.body)
+      .then(dog => res.status(200).json(dog))
+      .catch(err => res.status(500).json({message: 'Could not update this dog at this time', err}))
+  } else {
+    res.status(400).json({message: 'Please at least provide a name for the dog'})
+  }
+})
+
 module.exports = router;
